@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Design Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pokemon-detail.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="my-container">
+        <div data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine"
+        data-aos-duration="600" class="left-container">
+            <div class="pokemon-image-container">
+                <img class="pokemon-image" src="<%= imageURL %>" alt="<%= name %>">
+            </div>
+            <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine"
+            data-aos-duration="800" class="pokemon-name-container">
+                <div class="pokemon-name">
+                    <%= name %>
+                </div>
+            </div>
+            <div class="pokemon-text-container">
+                <div class="pokemon-description">
+                    <%= text %>
+                </div>
+            </div>
+        </div>
+        <div data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine"
+        data-aos-duration="600" class="right-container">
+            <div class="stats-container">
+                <% stats.forEach(function(stat) { %>
+                    <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine"
+                    data-aos-duration="800" class="progress mb-3 ability">
+                        <div class="progress-bar" id="statProgressBar<%= stat.stat.name %>" role="progressbar"
+                            aria-valuenow="<%= stat.base_stat %>" aria-valuemin="0" aria-valuemax="100">
+                            <%= stat.stat.name %>: <%= stat.base_stat %>
+                        </div>
+                    </div>
+                    <script>
+                        setProgressBarWidth("<%= stat.base_stat %>", "<%= stat.stat.name %>"); // Pass statValue and statName
+                    </script>
+                <% }); %>
+                
+            </div>
+            <div class="moves-container">
+                <h2>Moves</h2>
+                <div class="move-list">
+                    <% var count = 0; %>
+                    <% moves.forEach(function(move, index) { %>
+                        <% if (index % 10 === 0) { %>
+                            <ul class="unordered-list">
+                        <% } %>
+                        <li>
+                            <%= move.move.name %>
+                        </li>
+                        <% count++; %>
+                        <% if (count % 10 === 0 || index === moves.length - 1) { %>
+                            </ul>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="bmi-container">
+                <div class="height">Height : <%= height %></div>
+                <div class="weight">Weight : <%= weight %></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Initialize AOS -->
+    <script>
+        // Ensure AOS is loaded before initializing
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init();
+        });
+    </script>
+</body>
+
+</html>

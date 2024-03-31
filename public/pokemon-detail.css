@@ -1,0 +1,158 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(241, 239, 239);
+}
+.my-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.left-container {
+    height: 100%;
+    width: 40%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-container {
+    height: 100%;
+    width: 60%;
+    /* background-color: yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-image-container{
+    margin:20px;
+    width: 50%;
+    height: 50%;
+    /* background-color: aqua; */
+}
+
+.pokemon-name-container{
+    margin: 20px;
+    width: 50%;
+    height: 20%;
+    /* background-color: burlywood; */
+}
+
+.pokemon-text-container{
+    margin: 20px;
+    width: 70%;
+    height: 20%;
+    /* background-color: violet; */
+}
+
+.stats-container{
+    height: 35%;
+    width: 80%;
+    /* background-color: cadetblue; */
+    margin: 20px;
+}
+
+.moves-container{
+    height: 35%;
+    width: 80%;
+    /* background-color: lightgreen; */
+    margin: 20px;
+    margin-top: 50px;
+}
+.moves-container h2{
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.move-list{
+    display: flex;
+    flex-direction: row;
+}
+
+.unordered-list{
+    width: 25%;
+}
+
+.bmi-container{
+    height: 20%;
+    width: 80%;
+    /* background-color: lightpink; */
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.bmi-container div{
+    text-transform: capitalize;
+    color: black;
+    font-size: 200%;
+
+}
+
+.pokemon-image{
+    width: 100%;
+    height: 100%;
+}
+
+.pokemon-name{
+    margin: 10px;
+    font-style: italic;
+    font-size: 350%;
+    text-transform: capitalize;
+    color: black;
+    font-weight: 700;
+}
+
+.pokemon-description{
+    margin: 10px;
+    font-style: italic;
+    font-size: 30px;
+    text-transform: capitalize;
+    color: black;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ability{
+    height: 50px;
+    text-align: center;
+    color: wheat;
+    text-transform: capitalize;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 1200px) {
+    .my-container {
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+    }
+
+    .left-container{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 30px;
+    }
+
+    .right-container{
+        height: 100%;
+        width: 100%;
+        margin-top: 60px;
+    }
+
+    .stats-container{
+        height: 50%;
+    }
+    .moves-container{
+        height: 50%;
+    }
+    .bmi-container{
+        height: 50%;
+    }
+}
