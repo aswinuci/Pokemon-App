@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon List</title>
+    <!-- Link to AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div>
+        <div class="header">
+            <h1>Pokemon APP</h1>
+            <div class="search-container">
+                <input type="text" id="pokemonInput" oninput="showSuggestions()" placeholder="Search for a pokemon">
+                <div class="suggestion-box" id="suggestions"></div>
+            </div>
+        </div>
+        <div class="pokemon-container">
+            <!-- Add aos-related data attributes to the elements -->
+            <% allPokemons.forEach(function(pokemon) { %>
+            <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine"
+                data-aos-duration="600" class="pokemon">
+                <!-- Link to the Pokémon's page with its ID -->
+                <a href="/<%= pokemon.name %>">
+                    <img class="pokemon-image" src="<%= pokemon.image %>" alt="<%= pokemon.name %>">
+                    <p class="pokemon-name">
+                        <%= pokemon.name %>
+                    </p>
+                </a>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init();
+        });
+    </script>
+</body>
+
+</html>
